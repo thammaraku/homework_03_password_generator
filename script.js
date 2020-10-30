@@ -1,5 +1,6 @@
 var output = document.querySelector("#box4");
 var buttonEl = document.querySelector("#start");
+var combList = []
 var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var lowers = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 // var specials = [~ ! @ # $ % ^ * - _ = + [ { ] } / ; : , . ?]
@@ -8,6 +9,7 @@ var lowers = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q
 
 buttonEl.addEventListener("click", function() {
 
+var combList = []
 
 
 
@@ -56,20 +58,82 @@ while (userTry < 3) {
 var userTry = 0;
 while (userTry < 2) {
 
+    // var pickNumber = confirm("Do you need number in your password?");
+    // console.log(pickNumber);
+
+    // var pickLower = confirm("Do you need lower case characters in your password?");
+    // console.log(pickLower);
+
+    // var pickUpper = confirm("Do you need upper case characters in your password?");
+    // console.log(pickUpper);
+
+    // var pickSpecial = confirm("Do you need special characters in your password?");
+    // console.log(pickSpecial);
+
     var pickNumber = confirm("Do you need number in your password?");
-    console.log(pickNumber);
+    if (pickNumber === true) {
+        combList.push("Number");
+    }
+    console.log(combList);
 
     var pickLower = confirm("Do you need lower case characters in your password?");
-    console.log(pickLower);
+    if (pickLower === true) {
+        combList.push("Lower");
+    }
+    console.log(combList);
 
     var pickUpper = confirm("Do you need upper case characters in your password?");
-    console.log(pickUpper);
+    if (pickUpper === true) {
+        combList.push("Upper");
+    }
+    console.log(combList);
 
     var pickSpecial = confirm("Do you need special characters in your password?");
-    console.log(pickSpecial);
+    if (pickSpecial === true) {
+        combList.push("Special");
+    }
+    console.log(combList);
 
 
-    
+    // var pickNumber = confirm("Do you need number in your password?");
+    // if (pickNumber === "true") {
+    //     combList.push("Number");
+    // }
+    // combList.push(confirm("Do you need number in your password?"));
+    // console.log(combList);
+
+    // combList.push(confirm("Do you need lower case characters in your password?"));
+    // console.log(combList);
+
+    // combList.push(confirm("Do you need upper case characters in your password?"));
+    // console.log(combList);
+
+    // combList.push(confirm("Do you need special characters in your password?"));
+    // console.log(combList);
+
+
+    // var comList = ["true","true","false","false"]
+
+    // var comListNew = [];
+
+    // for(var i = 0; i < comList.length; i++) {
+
+    //     if (comList[0] === "true") {
+    //         comListNew.push("Number");
+    //     } else if (comList[1] === "true") {
+    //         comListNew.push("Number");
+
+    //     } else if (comList[2] === "true") {
+    //         comListNew.push("Number");
+
+    //     } else if (comList[3] === "true") {
+    //         comListNew.push("Number");
+
+    //     }
+    // }
+
+    // console.log(comListNew);
+
 
 
     if ((pickNumber == "false") && (pickLocal == "false") && (pickUpper == "false") && (pickSpecial == "false")) {
@@ -90,24 +154,25 @@ while (userTry < 2) {
         while (password.length < length) {
 
             // var comList = ["Number", "Special"]
-            var comList = ["Lower", "Upper"]
+            // var comList = ["Lower", "Upper"]
+
 
 
             // comList.forEach(getRandom);
-            for(var i = 0; i < comList.length; i++) {
+            for(var i = 0; i < combList.length; i++) {
 
-                function getRandom(comList) {
-                        if (comList[i] === "Number") {
+                function getRandom(combList) {
+                        if (combList[i] === "Number") {
                             return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-                        }  else if (comList[i] === "Upper") {
+                        }  else if (combList[i] === "Upper") {
                             return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-                        }  else if (comList[i] === "Lower") {
+                        }  else if (combList[i] === "Lower") {
                             return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-                        }  else if (comList[i] === "Special") {
+                        }  else if (combList[i] === "Special") {
                             return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
                         }   
                 }
-                var password = password.concat(getRandom(comList));
+                var password = password.concat(getRandom(combList));
                     console.log(password);
                     console.log(password.length);
                 
