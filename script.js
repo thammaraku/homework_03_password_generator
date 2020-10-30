@@ -9,6 +9,8 @@ var lowers = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q
 buttonEl.addEventListener("click", function() {
 
 
+
+
 function getRandomNumber() {
     return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
@@ -52,7 +54,7 @@ while (userTry < 3) {
 }
 
 var userTry = 0;
-while (userTry < 1) {
+while (userTry < 2) {
 
     var pickNumber = confirm("Do you need number in your password?");
     console.log(pickNumber);
@@ -61,21 +63,25 @@ while (userTry < 1) {
     console.log(pickLower);
 
     var pickUpper = confirm("Do you need upper case characters in your password?");
-    console.log(pickLower);
+    console.log(pickUpper);
 
     var pickSpecial = confirm("Do you need special characters in your password?");
     console.log(pickSpecial);
 
 
-    if ((pickNumber === "false") && (pickLocal === "false")) {
+    
+
+
+    if ((pickNumber == "false") && (pickLocal == "false") && (pickUpper == "false") && (pickSpecial == "false")) {
+        
         alert("Please select at least one type of character for your password");
         userTry++;
 
     } else {
         var userTry = 99;
-        console.log("length " + length);
-        console.log("pickNumber " + pickNumber);
-        console.log("lower " + pickLower);
+        // console.log("length " + length);
+        // console.log("pickNumber " + pickNumber);
+        // console.log("lower " + pickLower);
         // console.log("upper " + pickUpper);
         // console.log("special " + pickSpecial);
 
@@ -83,6 +89,30 @@ while (userTry < 1) {
 
         while (password.length < length) {
 
+            // var comList = ["Number", "Special"]
+            var comList = ["Lower", "Upper"]
+
+
+            // comList.forEach(getRandom);
+            for(var i = 0; i < comList.length; i++) {
+
+                function getRandom(comList) {
+                        if (comList[i] === "Number") {
+                            return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+                        }  else if (comList[i] === "Upper") {
+                            return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+                        }  else if (comList[i] === "Lower") {
+                            return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+                        }  else if (comList[i] === "Special") {
+                            return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
+                        }   
+                }
+                var password = password.concat(getRandom(comList));
+                    console.log(password);
+                    console.log(password.length);
+                
+            }
+            
             // if ((pickNumber = "true") && (pickLower = "true") ) {
 
             //     console.log(count);
@@ -99,74 +129,52 @@ while (userTry < 1) {
 
             // }
 
-            if ((pickNumber = "true")) {
+            // if ((pickNumberr = "true")) {
 
-                // console.log(count);
-                // var randomNumberIndex = Math.floor(Math.random() * numbers.length);
-                // console.log(numbers[randomNumberIndex]);
-                // var password = password.concat(numbers[randomNumberIndex]);
-                // console.log(password);
+            //     var password = password.concat(getRandomNumber());
+            //     console.log(password);
+            //     console.log(password.length);
 
-                var password = password.concat(getRandomNumber());
-                console.log(password);
-                console.log(password.length);
+            // }
 
-            }
-
-            if ((pickLower = "true")) {
-
-                // console.log(count);
-                // var randomLowerIndex = Math.floor(Math.random() * lowers.length);
-                // console.log(lowers[randomLowerIndex]);
-                // var password = password.concat(lowers[randomLowerIndex]);
-                // console.log(password);
-
-                var password = password.concat(getRandomLower());
-                console.log(password);
-                console.log(password.length);
+            // if ((pickLowerr = "true")) {
 
 
-            }
-
-            if ((pickUpper = "true")) {
-
-                // console.log(count);
-                // var randomLowerIndex = Math.floor(Math.random() * lowers.length);
-                // console.log(lowers[randomLowerIndex]);
-                // var password = password.concat(lowers[randomLowerIndex]);
-                // console.log(password);
-
-                var password = password.concat(getRandomUpper());
-                console.log(password);
-                console.log(password.length);
+            //     var password = password.concat(getRandomLower());
+            //     console.log(password);
+            //     console.log(password.length);
 
 
-            }
+            // }
 
-            if ((pickSpecial = "true")) {
-
-                // console.log(count);
-                // var randomLowerIndex = Math.floor(Math.random() * lowers.length);
-                // console.log(lowers[randomLowerIndex]);
-                // var password = password.concat(lowers[randomLowerIndex]);
-                // console.log(password);
-
-                var password = password.concat(getRandomSpecial());
-                console.log(password);
-                console.log(password.length);
+            // if ((pickUpperr = "true")) {
 
 
-            }
+            //     var password = password.concat(getRandomUpper());
+            //     console.log(password);
+            //     console.log(password.length);
+
+
+            // }
+
+            // if ((pickSpecialr = "true")) {
+ 
+            //     var password = password.concat(getRandomSpecial());
+            //     console.log(password);
+            //     console.log(password.length);
+
+
+            // }
         
         }
 
     }
-    if (userTry === 3) {
-        var length = 8;
-        alert("Since you did not select any, your password will have all four character types");
-        var userTry = 99;
-    }
 
+    // if (userTry === 3) {
+    //     var length = 8;
+    //     alert("Since you did not select any, your password will have all four character types");
+    //     var userTry = 99;
+    // }
 
 }
 
