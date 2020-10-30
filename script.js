@@ -1,3 +1,14 @@
+var output = document.querySelector("#box4");
+var buttonEl = document.querySelector("#start");
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var lowers = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+// var specials = [~ ! @ # $ % ^ * - _ = + [ { ] } / ; : , . ?]
+
+
+
+buttonEl.addEventListener("click", function() {
+
+
 function getRandomNumber() {
     return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
@@ -14,20 +25,18 @@ function getRandomSpecial() {
     return String.fromCharCode(Math.floor(Math.random() * 15) + 33);
 }
 
-var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var lowers = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-// var specials = [~ ! @ # $ % ^ * - _ = + [ { ] } / ; : , . ?]
+
 var password = "";
 var userTry = 0;
 
 // Prompt for user input number of characters
 while (userTry < 3) {
-    var length = prompt("How many characters for password?");
+    var length = prompt("How many characters for password do you need?\nMinimum length is 8 characters\nMaximum length is 128 characters");
     length = parseInt(length);
 
     // Minimum and Maximum of characters 
-    if (length < 8 || length >= 128) {
-        alert("The minimum characters is 8 chracters length.\n And the maximum is 128 characters length\n Please input the number within range");
+    if (length < 8 || length > 128) {
+        alert("Your input is not within range. Please input the number within range 8 - 128 characters");
         userTry++;
     } else {
         alert("Your password will be " + length + " characters length");
@@ -37,7 +46,7 @@ while (userTry < 3) {
 
     if (userTry === 3) {
         var length = 8;
-        alert("Your password will be 8 characters length");
+        alert("Since your selection was not within range. Your password will be 8 characters length");
         var userTry = 0;
     }
 }
@@ -162,4 +171,10 @@ while (userTry < 1) {
 }
 
 
+output.setAttribute("style", "border: solid");
+buttonEl.setAttribute("style", "background-color: green");
+output.setAttribute("style", "background-color: yellow");
+output.textContent = password;
+
+});
 
