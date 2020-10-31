@@ -1,6 +1,6 @@
 # Homework_03_password_generator
 
-## Objective : 
+## Objective
 To create an application (Password Generator) by using Javascript to meet below requirements
 - Dynamically updated HTML and CSS by using Javascript.
 - Responsive interface, adapts to multiple screen sizes.
@@ -21,7 +21,7 @@ https://thammaraku.github.io/homework_03_password_generator/
 ![Thammarak Password Generator](./assets/images/thammarak_password_generator.png)
 
 
-## What I learned from this assignment
+## Knowledge learned from this assignment
 1. Javascript structure and syntax
 2. Javascript HTML DOM : select element, change element style and add content to an element
 3. Javasctipt if statement, for loop and while loop
