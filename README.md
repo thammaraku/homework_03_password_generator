@@ -18,8 +18,8 @@ https://thammaraku.github.io/homework_03_password_generator/
 
 
 ### Screenshot
-![Thammarak Password Generator](./assets/images/thammarak_password_generator.png)
-
+![Thammarak Password Generator Desktop](./assets/images/thammarak_password_generator.png)
+![Thammarak Password Generator Phone and Tablet](./assets/images/thammarak_password_generator_phone.png)
 
 ## Knowledge learned from this assignment
 1. Javascript structure and syntax
